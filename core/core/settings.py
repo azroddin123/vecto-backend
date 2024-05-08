@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'accounts',
+    'service_provider',
     'portals'
 ]
 
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Activate it once we started working on preoject 
+    #   'portals.middlewares.CustomAuthentication'
 ]
 
 ROOT_URLCONF = "core.urls"

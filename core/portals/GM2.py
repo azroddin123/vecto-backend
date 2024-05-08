@@ -16,7 +16,6 @@ class GenericMethodsMixin:
             
         self.lookup = self.get_lookup()
         self.query = self.get_query()
-
         
     def get_lookup(self):
         return self.lookup_field

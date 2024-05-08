@@ -18,8 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path,include
 
+from django.http import JsonResponse
+def api_status(request):
+    """
+    View function to return API status message.
+    """
+    return JsonResponse({'message': 'API Works Here'})
 
 urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path("admin/", admin.site.urls),
+    path('',api_status),
 ]

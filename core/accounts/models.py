@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from .managers import UserManager
 import uuid
+from portals.choices import UserChoices
 # Create your models here.
-
 class User(AbstractBaseUser):
     id         = models.UUIDField(default=uuid.uuid4,primary_key=True)
     email      = models.EmailField(
@@ -19,6 +19,7 @@ class User(AbstractBaseUser):
     created_on       = models.DateTimeField(auto_now_add=True,editable=False)
     updated_on       = models.DateTimeField(auto_now=True)
     is_active        = models.BooleanField(default=True)
+    user_role        = models.CharField(UserChoices,max_length=50,default=UserChoices.NORMAL)
     objects          = UserManager()
     
     USERNAME_FIELD = 'email'
